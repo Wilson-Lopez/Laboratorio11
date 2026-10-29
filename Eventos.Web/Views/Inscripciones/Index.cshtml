@@ -1,0 +1,51 @@
+@model IEnumerable<Inscripcion>
+@{
+    ViewData["Title"] = "Inscripciones";
+}
+
+<div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+    <h1 class="h3 mb-0">Inscripciones</h1>
+    <a asp-action="Create" class="btn btn-primary">Nueva inscripción</a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover align-middle">
+        <thead class="table-light">
+            <tr>
+                <th>@Html.DisplayNameFor(m => m.EventoId)</th>
+                <th>@Html.DisplayNameFor(m => m.AsistenteId)</th>
+                <th>@Html.DisplayNameFor(m => m.FechaInscripcion)</th>
+                <th>@Html.DisplayNameFor(m => m.Estado)</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var i in Model)
+            {
+                <tr>
+                    <td>@i.Evento?.Titulo</td>
+                    <td>@i.Asistente?.Nombres</td>
+                    <td>@i.FechaInscripcion.ToString("dd/MM/yyyy HH:mm")</td>
+                    <td>
+                        <span class="badge @(i.Estado == Inscripcion.Confirmada ? "text-bg-success" : "text-bg-secondary")">@i.Estado</span>
+                    </td>
+                    <td class="text-end">
+                        @if (i.Estado == Inscripcion.Confirmada)
+                        {
+                            <form asp-action="Cancelar" asp-route-id="@i.Id" method="post" class="d-inline"
+                                  onsubmit="return confirm('¿Cancelar esta inscripción?');">
+                                <button type="submit" class="btn btn-sm btn-outline-danger">Cancelar</button>
+                            </form>
+                        }
+                    </td>
+                </tr>
+            }
+            @if (!Model.Any())
+            {
+                <tr>
+                    <td colspan="5" class="text-center text-muted py-4">No hay inscripciones registradas.</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

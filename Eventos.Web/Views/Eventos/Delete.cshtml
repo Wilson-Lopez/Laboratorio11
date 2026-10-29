@@ -1,0 +1,37 @@
+@model Evento
+@{
+    ViewData["Title"] = "Eliminar evento";
+}
+
+<h1 class="h3">Eliminar evento</h1>
+<div class="alert alert-warning">
+    ¿Está seguro de eliminar este evento? Dejará de mostrarse en los listados (eliminación lógica: Activo = false).
+</div>
+<dl class="row">
+    <dt class="col-sm-3">@Html.DisplayNameFor(m => m.Titulo)</dt>
+    <dd class="col-sm-9">@Model.Titulo</dd>
+
+    <dt class="col-sm-3">@Html.DisplayNameFor(m => m.CategoriaId)</dt>
+    <dd class="col-sm-9">@Model.Categoria?.Nombre</dd>
+
+    <dt class="col-sm-3">@Html.DisplayNameFor(m => m.Fecha)</dt>
+    <dd class="col-sm-9">@Model.Fecha.ToString("dd/MM/yyyy HH:mm")</dd>
+
+    <dt class="col-sm-3">@Html.DisplayNameFor(m => m.Lugar)</dt>
+    <dd class="col-sm-9">@Model.Lugar</dd>
+
+    <dt class="col-sm-3">@Html.DisplayNameFor(m => m.Modalidad)</dt>
+    <dd class="col-sm-9">@Model.Modalidad</dd>
+
+    <dt class="col-sm-3">@Html.DisplayNameFor(m => m.Aforo)</dt>
+    <dd class="col-sm-9">@Model.Aforo</dd>
+
+    <dt class="col-sm-3">@Html.DisplayNameFor(m => m.Precio)</dt>
+    <dd class="col-sm-9">@Model.Precio.ToString("N2")</dd>
+</dl>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>

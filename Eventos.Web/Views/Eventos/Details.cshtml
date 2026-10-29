@@ -1,0 +1,33 @@
+@model Evento
+@{
+    ViewData["Title"] = "Detalle del evento";
+}
+
+<h1 class="h3">Detalle del evento</h1>
+<hr />
+<dl class="row">
+    <dt class="col-sm-3">@Html.DisplayNameFor(m => m.Titulo)</dt>
+    <dd class="col-sm-9">@Model.Titulo</dd>
+
+    <dt class="col-sm-3">@Html.DisplayNameFor(m => m.CategoriaId)</dt>
+    <dd class="col-sm-9">@Model.Categoria?.Nombre</dd>
+
+    <dt class="col-sm-3">@Html.DisplayNameFor(m => m.Fecha)</dt>
+    <dd class="col-sm-9">@Model.Fecha.ToString("dd/MM/yyyy HH:mm")</dd>
+
+    <dt class="col-sm-3">@Html.DisplayNameFor(m => m.Lugar)</dt>
+    <dd class="col-sm-9">@Model.Lugar</dd>
+
+    <dt class="col-sm-3">@Html.DisplayNameFor(m => m.Modalidad)</dt>
+    <dd class="col-sm-9">@Model.Modalidad</dd>
+
+    <dt class="col-sm-3">@Html.DisplayNameFor(m => m.Aforo)</dt>
+    <dd class="col-sm-9">@Model.Aforo</dd>
+
+    <dt class="col-sm-3">@Html.DisplayNameFor(m => m.Precio)</dt>
+    <dd class="col-sm-9">@Model.Precio.ToString("N2")</dd>
+</dl>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Editar</a>
+    <a asp-action="Index" class="btn btn-secondary">Volver al listado</a>
+</div>

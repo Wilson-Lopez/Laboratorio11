@@ -1,0 +1,183 @@
+:root {
+  --app-navy: #1c3150;
+  --app-navy-oscuro: #13243c;
+  --app-acento: #5b9ee6;
+  --app-azul: #2d5f95;
+  --app-azul-oscuro: #234c78;
+  --app-fondo: #f3f4f6;
+  --app-borde: #e1e4e8;
+  --app-tinta: #1c2a3d;
+}
+
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+  background-color: var(--app-fondo);
+  color: var(--app-tinta);
+}
+
+/* Barra de navegación azul marino */
+.navbar-app {
+  background: linear-gradient(180deg, var(--app-navy), var(--app-navy-oscuro));
+  padding-top: 0;
+  padding-bottom: 0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, .18);
+}
+
+.navbar-app .navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  padding: .85rem 0;
+  margin-right: 1.75rem;
+  font-size: 1.35rem;
+  color: #fff;
+}
+
+.navbar-app .icono-marca {
+  width: 26px;
+  height: 26px;
+  flex-shrink: 0;
+}
+
+.navbar-app .nav-link {
+  padding: 1.1rem 1rem;
+  font-size: 1.05rem;
+  color: #a9b6c8;
+  border-bottom: 3px solid transparent;
+  transition: color .15s, background-color .15s;
+}
+
+.navbar-app .nav-link:hover {
+  color: #fff;
+}
+
+.navbar-app .nav-link.active {
+  color: #fff;
+  background-color: rgba(255, 255, 255, .08);
+  border-bottom-color: var(--app-acento);
+}
+
+@media (min-width: 576px) {
+  .navbar-app .navbar-nav .nav-link {
+    padding: 1.1rem 1rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .navbar-app .nav-link {
+    padding: .6rem .75rem;
+    border-bottom: 0;
+    border-left: 3px solid transparent;
+  }
+
+  .navbar-app .nav-link.active {
+    border-left-color: var(--app-acento);
+  }
+}
+
+/* Botones azul acero con sombra */
+.btn-primary {
+  --bs-btn-bg: var(--app-azul);
+  --bs-btn-border-color: var(--app-azul);
+  --bs-btn-hover-bg: var(--app-azul-oscuro);
+  --bs-btn-hover-border-color: var(--app-azul-oscuro);
+  --bs-btn-active-bg: var(--app-azul-oscuro);
+  --bs-btn-active-border-color: var(--app-azul-oscuro);
+  box-shadow: 0 3px 6px rgba(19, 36, 60, .28);
+}
+
+.btn-outline-primary {
+  --bs-btn-color: var(--app-azul);
+  --bs-btn-border-color: var(--app-azul);
+  --bs-btn-hover-bg: var(--app-azul);
+  --bs-btn-hover-border-color: var(--app-azul);
+  --bs-btn-active-bg: var(--app-azul-oscuro);
+  --bs-btn-active-border-color: var(--app-azul-oscuro);
+}
+
+/* Panel blanco que contiene cada página */
+.panel {
+  background-color: #fff;
+  border: 1px solid var(--app-borde);
+  border-radius: .5rem;
+  box-shadow: 0 2px 6px rgba(16, 24, 40, .06);
+  padding: 1.5rem;
+}
+
+/* Tarjetas de módulo de la página de inicio */
+.tarjeta-modulo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  padding: 2.25rem 1.5rem 2rem;
+  text-align: center;
+  background-color: #fff;
+  border: 1px solid var(--app-borde);
+  border-radius: .5rem;
+  box-shadow: 0 2px 6px rgba(16, 24, 40, .06);
+  transition: box-shadow .2s, transform .2s;
+}
+
+.tarjeta-modulo:hover {
+  box-shadow: 0 8px 20px rgba(16, 24, 40, .10);
+  transform: translateY(-2px);
+}
+
+.tarjeta-modulo .icono {
+  width: 76px;
+  height: 76px;
+  margin-bottom: 1rem;
+  fill: none;
+  stroke: var(--app-tinta);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.tarjeta-modulo h2 {
+  margin-bottom: .5rem;
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+.tarjeta-modulo p {
+  margin-bottom: 1.75rem;
+  font-size: 1.1rem;
+  color: #2b3440;
+}
+
+.tarjeta-modulo .btn {
+  margin-top: auto;
+  padding: .55rem 1.25rem;
+  font-size: 1.1rem;
+}
+
+.form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
+  color: var(--bs-secondary-color);
+  text-align: end;
+}
+
+.form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
+  text-align: start;
+}
